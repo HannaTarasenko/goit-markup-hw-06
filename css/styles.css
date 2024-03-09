@@ -15,11 +15,6 @@ ul, ol {
   padding: 0;
   margin: 0;
 }
-.container {
-  max-width: 1158px;
-  padding: 0 15px;
-  margin: 0 auto;
-}
 button {
   cursor: pointer;
 }
@@ -28,22 +23,37 @@ img {
   max-width: 100%;
   height: auto;
 }
+.container {
+  max-width: 320px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .container{
+  max-width: 768px;
+  }
+  }
+  @media screen and (min-width: 1158px) {
+  .container {
+  max-width: 1158px;
+  padding: 0 15px;
+  }
 /* =========== /Common styles =========== */
 /* =========== Mobile version styles =========== */
 /* =========== Page Header styles =========== */
+
 .header {
   border-bottom: 1px solid #e7e9fc;
   box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
 background: #fff;
 }
+
 .header-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
-.page-nav {
-  display: flex;
-  align-items: center;
-}
+
 .logo {
   font-family: "Raleway", sans-serif;
   font-weight: 700;
@@ -52,24 +62,61 @@ background: #fff;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #4d5ae5;
-  margin-right: 76px;
+  padding: 17px 0;
 }
 .logo-part {
   color: #2e2f42;
 }
 .nav-list {
-  display: flex;
-  gap: 40px;
+  display: none;
 }
-.nav-link {
-  color: #2e2f42;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  padding: 24px 0;
-  display: block;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.address-container {
+  font-style: normal;
+  margin-left: auto;
+  display: none;
+}
+@media only screen and (max-width: 767px) {
+  .nav-list {
+    display: none;
+  }
+  .header {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .open-menu-btn {
+  padding: 0;
+  line-height: 0;
+  background-color: transparent;
+  border: none;
+  fill: #000000;
+}
+}
+@media only screen and (min-width:768px) {
+  .open-menu-btn {
+    display: none;
+  }
+  .logo {
+    margin-right: 120px;
+  }
+  .page-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-list {
+    display: flex;
+    column-gap: 40px;
+  }
+  .nav-link {
+    display: block;
+    color: #2e2f42;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    padding: 24px 0;
+    display: block;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-link:hover, .nav-link:focus {
   color: #404bbf;
@@ -79,37 +126,46 @@ position: relative;
 color: #404bbf;
 }
 .current::after {
+  content: "";
   position: absolute;
   left: 0;
   bottom: -1px;
-  content: "";
   border-radius: 2px;
   height: 4px;
   width: 100%;
   background-color: #404bbf;
-
 }
 .address-container {
-  font-style: normal;
-  margin-left: auto;
+  display: block;
 }
 .address-list {
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  gap: 12px;
 }
 .address-link {
   color: #434455;
-  font-size: 16px;
-  line-height: 1.5;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
   letter-spacing: 0.02em;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-link:hover, .address-link:focus {
   color: #404bbf;
 }
+}
+/*
+
+
+
+
+
+
 /* =========== /Page Header styles =========== */
 /* =========== Hero Section styles =========== */
+/*
 .hero {
   background-color: #2e2f42;
   padding: 188px 0;
@@ -158,6 +214,7 @@ color: #404bbf;
 }
 /* =========== /Hero Section styles =========== */
 /* =========== Benefits Section styles =========== */
+/*
 .benefits {
   padding: 120px 0;
 }
@@ -209,6 +266,7 @@ color: #404bbf;
 }
 /* =========== /Benefits Section styles =========== */
 /* =========== Our Team Section styles =========== */
+/*
 .our-team {
   background-color: #f4f4fd;
   display: block;
@@ -247,6 +305,7 @@ color: #404bbf;
 .team-list-item {
   background-color: #ffffff;
   width: calc((100% - 72px) / 4); /* Corrected width */
+  /*
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
   0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
   border-radius: 0px 0px 4px 4px;
@@ -284,6 +343,7 @@ color: #404bbf;
 }
 /* =========== /Our Team Section styles =========== */
 /* =========== Our Portfolio Section styles =========== */
+/*
 .our-portfolio {
   display: block;
   padding: 120px 0;
@@ -311,6 +371,7 @@ color: #404bbf;
 }
 .portfolio-list-item {
   width: calc((100% - 48px) / 3); /* Corrected width */
+  /*
   background-color: #ffffff;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -359,7 +420,8 @@ color: #404bbf;
 }
 /* =========== /Our Portfolio Section styles =========== */
 /* =========== Page Footer styles =========== */
-.page-footer {
+
+/*.page-footer {
   background-color: #2e2f42;
   padding: 100px 0;
 }
@@ -485,6 +547,7 @@ color: #404bbf;
 /* =========== /Page Footer styles =========== */
 
 /* =========== Backdrop styles =========== */
+/*
 .backdrop {
   position: fixed;
   top: 0;
@@ -506,6 +569,7 @@ color: #404bbf;
 /* =========== /Backdrop styles =========== */
 
 /* =========== Modal window styles =========== */
+/*
 .modal {
   position: absolute;
   top: 50%;
@@ -548,6 +612,7 @@ color: #404bbf;
 /* =========== /Modal window styles =========== */
 
 /* =========== Review form styles =========== */
+/*
 .review-form-description {
   font-weight: 500;
   font-size: 16px;
